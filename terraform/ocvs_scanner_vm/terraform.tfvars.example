@@ -1,0 +1,12 @@
+tenancy_ocid          = "ocid1.tenancy.oc1..example"
+user_ocid             = "ocid1.user.oc1..example"
+compartment_ocid      = "ocid1.compartment.oc1..example"
+region                = "ap-melbourne-1"
+api_fingerprint       = "aa:bb:cc:dd:ee"
+api_private_key_path  = "/Users/kay/.oci/oci_api_key.pem"
+vm_shape              = "VM.Standard3.Flex"
+vm_ocpus              = 2
+vm_memory_in_gbs      = 16
+vm_boot_volume_size_in_gbs = 100
+vcn_cidr              = "10.20.0.0/16"
+subnet_cidr           = "10.20.1.0/24"

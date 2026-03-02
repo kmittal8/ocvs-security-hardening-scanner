@@ -1,0 +1,23 @@
+# Terraform sensitive files
+terraform/ocvs_scanner_vm/terraform.tfvars
+terraform/ocvs_scanner_vm/terraform.tfstate
+terraform/ocvs_scanner_vm/terraform.tfstate.backup
+terraform/ocvs_scanner_vm/.terraform/
+terraform/ocvs_scanner_vm/tfplan
+terraform/ocvs_scanner_vm/plan.tfplan
+terraform/ocvs_scanner_vm/*.tfplan
+
+# SSH keys — never commit private keys
+terraform/ocvs_scanner_vm/id_rsa_*
+terraform/ocvs_scanner_vm/*.pem
+
+# Screenshots / local artifacts
+*.heic
+*.png
+*.jpg
+
+# Claude Code local settings
+.claude/
+
+# macOS
+.DS_Store

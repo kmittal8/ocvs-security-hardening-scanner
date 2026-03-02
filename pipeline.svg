@@ -1,0 +1,228 @@
+<svg viewBox="0 0 860 445" xmlns="http://www.w3.org/2000/svg" width="860" height="445">
+
+  <!-- Background -->
+  <rect width="860" height="445" fill="#0d1117"/>
+  <rect x="1" y="1" width="858" height="443" rx="10" fill="none" stroke="#30363d" stroke-width="1.5"/>
+
+  <defs>
+    <!-- Arrow markers -->
+    <marker id="ab" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#58a6ff"/>
+    </marker>
+    <marker id="ag" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#3fb950"/>
+    </marker>
+    <marker id="ago" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#d29922"/>
+    </marker>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#f78166"/>
+    </marker>
+
+    <!-- Blue glow -->
+    <filter id="fb" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Green glow (stronger) -->
+    <filter id="fg" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Clip scan line inside Compliance Engine -->
+    <clipPath id="ce">
+      <rect x="340" y="28" width="134" height="96" rx="6"/>
+    </clipPath>
+  </defs>
+
+  <!-- ─── Section labels & divider ─── -->
+  <text x="52" y="26" font-size="10" fill="#8b949e" font-family="system-ui,sans-serif" font-weight="700" letter-spacing=".1em">&#x2460; SCAN PIPELINE</text>
+  <line x1="20" y1="148" x2="840" y2="148" stroke="#30363d" stroke-width="1" stroke-dasharray="4 6"/>
+  <text x="52" y="163" font-size="10" fill="#8b949e" font-family="system-ui,sans-serif" font-weight="700" letter-spacing=".1em">&#x2461; RAG PIPELINE</text>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 1 — Scan Pipeline  (y-center = 76)
+       ══════════════════════════════════════════════ -->
+
+  <!-- N1: vCenter / ESXi -->
+  <g filter="url(#fb)">
+    <rect x="22" y="52" width="112" height="48" rx="6" fill="#0c1d2e" stroke="#58a6ff" stroke-width="1.5"/>
+  </g>
+  <text x="78" y="73" text-anchor="middle" font-size="11" fill="#e6edf3" font-family="system-ui,sans-serif" font-weight="600">vCenter</text>
+  <text x="78" y="89" text-anchor="middle" font-size="10" fill="#8b949e" font-family="system-ui,sans-serif">ESXi Hosts</text>
+
+  <!-- Arrow N1 → N2 + moving dot -->
+  <line x1="136" y1="76" x2="178" y2="76" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="8 5" marker-end="url(#ab)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-13" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <circle r="3.5" fill="#58a6ff" opacity="0.85">
+    <animateMotion path="M 136 76 L 178 76" dur="0.9s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- N2: pyVmomi API -->
+  <g filter="url(#fb)">
+    <rect x="180" y="52" width="112" height="48" rx="6" fill="#0c1d2e" stroke="#58a6ff" stroke-width="1.5"/>
+  </g>
+  <text x="236" y="73" text-anchor="middle" font-size="11" fill="#e6edf3" font-family="system-ui,sans-serif" font-weight="600">pyVmomi</text>
+  <text x="236" y="89" text-anchor="middle" font-size="10" fill="#8b949e" font-family="system-ui,sans-serif">VMware SDK</text>
+
+  <!-- Arrow N2 → N3 + moving dot -->
+  <line x1="294" y1="76" x2="338" y2="76" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="8 5" marker-end="url(#ab)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-13" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <circle r="3.5" fill="#58a6ff" opacity="0.85">
+    <animateMotion path="M 294 76 L 338 76" dur="0.9s" repeatCount="indefinite" begin="0.3s"/>
+  </circle>
+
+  <!-- N3: Compliance Engine (taller, highlighted) -->
+  <g filter="url(#fb)">
+    <rect x="340" y="28" width="134" height="96" rx="6" fill="#0c1d2e" stroke="#58a6ff" stroke-width="2"/>
+  </g>
+  <!-- Scanning line animation inside the engine -->
+  <rect x="344" y="32" width="126" height="3" rx="1" fill="#58a6ff" clip-path="url(#ce)">
+    <animate attributeName="y" from="32" to="118" dur="1.8s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.1;0.9;1" dur="1.8s" repeatCount="indefinite"/>
+  </rect>
+  <text x="407" y="58" text-anchor="middle" font-size="11" fill="#e6edf3" font-family="system-ui,sans-serif" font-weight="600">Compliance</text>
+  <text x="407" y="74" text-anchor="middle" font-size="11" fill="#e6edf3" font-family="system-ui,sans-serif" font-weight="600">Engine</text>
+  <text x="407" y="93" text-anchor="middle" font-size="10" fill="#58a6ff" font-family="system-ui,sans-serif" font-weight="600">60+ SCG v8 checks</text>
+  <text x="407" y="109" text-anchor="middle" font-size="9" fill="#8b949e" font-family="system-ui,sans-serif">IAM &#xB7; Network &#xB7; Host &#xB7; VM &#xB7; Log</text>
+
+  <!-- Arrow N3 → N4 + moving dot -->
+  <line x1="476" y1="76" x2="520" y2="76" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="8 5" marker-end="url(#ab)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-13" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <circle r="3.5" fill="#58a6ff" opacity="0.85">
+    <animateMotion path="M 476 76 L 520 76" dur="0.9s" repeatCount="indefinite" begin="0.6s"/>
+  </circle>
+
+  <!-- N4: Scan Results -->
+  <rect x="522" y="52" width="114" height="48" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+  <text x="579" y="73" text-anchor="middle" font-size="11" fill="#e6edf3" font-family="system-ui,sans-serif" font-weight="600">Scan Results</text>
+  <text x="579" y="89" text-anchor="middle" font-size="10" fill="#8b949e" font-family="system-ui,sans-serif">PASS / FAIL</text>
+
+  <!-- Arrow N4 → N5 (red = write/remediate) + moving dot -->
+  <line x1="638" y1="76" x2="684" y2="76" stroke="#f78166" stroke-width="1.5" stroke-dasharray="8 5" marker-end="url(#ar)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-13" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <circle r="3.5" fill="#f78166" opacity="0.85">
+    <animateMotion path="M 638 76 L 684 76" dur="0.9s" repeatCount="indefinite" begin="0.9s"/>
+  </circle>
+
+  <!-- N5: Auto-Remediate -->
+  <g filter="url(#fb)">
+    <rect x="686" y="52" width="134" height="48" rx="6" fill="#1c0e0b" stroke="#f78166" stroke-width="1.5"/>
+  </g>
+  <text x="753" y="73" text-anchor="middle" font-size="11" fill="#e6edf3" font-family="system-ui,sans-serif" font-weight="600">Auto-Remediate</text>
+  <text x="753" y="89" text-anchor="middle" font-size="10" fill="#f78166" font-family="system-ui,sans-serif">pyVmomi writes</text>
+
+  <!-- ─── Vertical: Results ↓ Cache (RAG branch) ─── -->
+  <line x1="579" y1="102" x2="579" y2="168" stroke="#d29922" stroke-width="1.5" stroke-dasharray="8 5" marker-end="url(#ago)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-13" dur="2s" repeatCount="indefinite"/>
+  </line>
+  <circle r="3.5" fill="#d29922" opacity="0.85">
+    <animateMotion path="M 579 102 L 579 168" dur="1.3s" repeatCount="indefinite"/>
+  </circle>
+  <!-- RAG badge pill -->
+  <rect x="588" y="126" width="36" height="16" rx="8" fill="rgba(210,153,34,.15)" stroke="rgba(210,153,34,.5)" stroke-width="1"/>
+  <text x="606" y="138" text-anchor="middle" font-size="9" fill="#d29922" font-family="system-ui,sans-serif" font-weight="700">RAG</text>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 2 — Result Cache
+       ══════════════════════════════════════════════ -->
+
+  <!-- N6: Result Cache -->
+  <g filter="url(#fb)">
+    <rect x="522" y="170" width="114" height="48" rx="6" fill="#1a160a" stroke="#d29922" stroke-width="1.5"/>
+  </g>
+  <text x="579" y="191" text-anchor="middle" font-size="11" fill="#e6edf3" font-family="system-ui,sans-serif" font-weight="600">Result Cache</text>
+  <text x="579" y="207" text-anchor="middle" font-size="10" fill="#d29922" font-family="system-ui,sans-serif">Persisted JSON</text>
+
+  <!-- L-path: Cache ↓ then ← into OCI GenAI + 2 dots -->
+  <polyline points="579,220 579,285 480,285" fill="none" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="8 5" marker-end="url(#ag)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-13" dur="2.2s" repeatCount="indefinite"/>
+  </polyline>
+  <circle r="3.5" fill="#3fb950" opacity="0.85">
+    <animateMotion path="M 579 220 L 579 285 L 480 285" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle r="3.5" fill="#3fb950" opacity="0.85">
+    <animateMotion path="M 579 220 L 579 285 L 480 285" dur="2.5s" repeatCount="indefinite" begin="1.25s"/>
+  </circle>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 3 — OCI GenAI + AI Narrative  (y-center = 285)
+       ══════════════════════════════════════════════ -->
+
+  <!-- N7: OCI GenAI — expanding pulse ring -->
+  <rect x="344" y="260" width="134" height="50" rx="8" fill="none" stroke="#3fb950" stroke-width="1.5">
+    <animate attributeName="x"      from="344" to="328" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="y"      from="260" to="244" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="width"  from="134" to="166" dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="height" from="50"  to="82"  dur="2.2s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-opacity" from="0.6" to="0" dur="2.2s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- N7: OCI GenAI — glow layer -->
+  <g filter="url(#fg)">
+    <rect x="344" y="260" width="134" height="50" rx="6" fill="#091a0e" stroke="#3fb950" stroke-width="2"/>
+  </g>
+
+  <!-- N7: OCI GenAI — crisp pulsing border on top -->
+  <rect x="344" y="260" width="134" height="50" rx="6" fill="#091a0e" stroke="#3fb950" stroke-width="2">
+    <animate attributeName="stroke-opacity" values="1;0.3;1" dur="2.2s" repeatCount="indefinite"/>
+  </rect>
+  <text x="411" y="281" text-anchor="middle" font-size="11" fill="#e6edf3" font-family="system-ui,sans-serif" font-weight="600">OCI GenAI</text>
+  <text x="411" y="297" text-anchor="middle" font-size="10" fill="#3fb950" font-family="system-ui,sans-serif">Cohere &#xB7; ap-hyderabad-1</text>
+
+  <!-- Arrow N7 → N8 + moving dot -->
+  <line x1="342" y1="285" x2="294" y2="285" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="8 5" marker-end="url(#ag)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-13" dur="1.5s" repeatCount="indefinite"/>
+  </line>
+  <circle r="3.5" fill="#3fb950" opacity="0.85">
+    <animateMotion path="M 342 285 L 294 285" dur="0.9s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- N8: AI Narrative -->
+  <g filter="url(#fb)">
+    <rect x="178" y="260" width="114" height="50" rx="6" fill="#091a0e" stroke="#3fb950" stroke-width="1.5"/>
+  </g>
+  <text x="235" y="281" text-anchor="middle" font-size="11" fill="#e6edf3" font-family="system-ui,sans-serif" font-weight="600">AI Narrative</text>
+  <text x="235" y="297" text-anchor="middle" font-size="10" fill="#3fb950" font-family="system-ui,sans-serif">Plain-language</text>
+
+  <!-- Arrow N8 → N9 + moving dot -->
+  <line x1="235" y1="312" x2="235" y2="356" stroke="#d29922" stroke-width="1.5" stroke-dasharray="8 5" marker-end="url(#ago)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-13" dur="2s" repeatCount="indefinite"/>
+  </line>
+  <circle r="3.5" fill="#d29922" opacity="0.85">
+    <animateMotion path="M 235 312 L 235 356" dur="1s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 4 — PDF Report
+       ══════════════════════════════════════════════ -->
+
+  <!-- N9: PDF Report -->
+  <g filter="url(#fb)">
+    <rect x="178" y="358" width="114" height="50" rx="6" fill="#1a160a" stroke="#d29922" stroke-width="2"/>
+  </g>
+  <text x="235" y="379" text-anchor="middle" font-size="11" fill="#e6edf3" font-family="system-ui,sans-serif" font-weight="600">PDF Report</text>
+  <text x="235" y="395" text-anchor="middle" font-size="10" fill="#d29922" font-family="system-ui,sans-serif">SOC-ready &#xB7; ReportLab</text>
+
+  <!-- OCI Data Residency callout -->
+  <rect x="490" y="352" width="224" height="66" rx="6" fill="rgba(63,185,80,.06)" stroke="rgba(63,185,80,.28)" stroke-width="1"/>
+  <text x="602" y="374" text-anchor="middle" font-size="10" fill="#3fb950" font-family="system-ui,sans-serif" font-weight="700">&#x1F512; OCI Data Residency</text>
+  <text x="602" y="391" text-anchor="middle" font-size="9" fill="#8b949e" font-family="system-ui,sans-serif">All AI calls stay within OCI tenancy</text>
+  <text x="602" y="406" text-anchor="middle" font-size="9" fill="#8b949e" font-family="system-ui,sans-serif">No data exits to external providers</text>
+
+  <!-- ─── Legend ─── -->
+  <circle cx="30"  cy="432" r="3.5" fill="#58a6ff"/>
+  <text   x="40"   y="436" font-size="9" fill="#8b949e" font-family="system-ui,sans-serif">VMware / Scan</text>
+  <circle cx="130" cy="432" r="3.5" fill="#3fb950"/>
+  <text   x="140"  y="436" font-size="9" fill="#8b949e" font-family="system-ui,sans-serif">OCI GenAI / RAG</text>
+  <circle cx="240" cy="432" r="3.5" fill="#d29922"/>
+  <text   x="250"  y="436" font-size="9" fill="#8b949e" font-family="system-ui,sans-serif">Output / Cache</text>
+  <circle cx="340" cy="432" r="3.5" fill="#f78166"/>
+  <text   x="350"  y="436" font-size="9" fill="#8b949e" font-family="system-ui,sans-serif">Auto-Remediation</text>
+
+</svg>

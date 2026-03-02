@@ -14,15 +14,7 @@
 
 This platform automates the tedious manual work of hardening VMware vSphere 8 environments. It connects directly to vCenter, runs **60+ compliance checks** against the *VMware vSphere Security Configuration Guide v8 (SCG v8)*, remediates failed controls automatically, and generates AI-powered PDF reports — all from a browser-based dashboard deployed on OCI.
 
-### The Pipeline
-
-```
-① SCAN PIPELINE
-vCenter / ESXi  →  pyVmomi SDK  →  Compliance Engine (60+ checks)  →  Scan Results  →  Auto-Remediate
-
-② RAG PIPELINE
-Scan Results  →  Result Cache (JSON)  →  OCI GenAI (LLM)  →  AI Narrative  →  PDF Report
-```
+![Architecture & RAG Pipeline](./pipeline.svg)
 
 ---
 
@@ -136,5 +128,3 @@ terraform destroy
 - [Terraform OCI Provider](https://registry.terraform.io/providers/oracle/oci/latest/docs)
 
 ---
-
-*Built with Oracle Cloud Infrastructure & Anthropic Claude*
